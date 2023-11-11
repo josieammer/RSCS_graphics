@@ -1,5 +1,9 @@
 import math
 import pygame
+import cv2
+
+from google.colab.patches import cv2_imshow
+from google.colab import output
 
 import graphics_primitives
 
