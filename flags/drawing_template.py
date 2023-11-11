@@ -74,12 +74,12 @@ def run_program():
   _default_font = pygame.font.Font(pygame.font.get_default_font(), 16)
 
   # Fill the background with white
-  graphics_primitives.screen.fill((255, 255, 255))
+  screen.fill((255, 255, 255))
   draw_shapes()
   pygame.display.flip()
 
   #convert image so it can be displayed in OpenCV
-  image = pygame.surfarray.array3d(graphics_primitives.screen)
+  image = pygame.surfarray.array3d(screen)
   #  convert from (width, height, channel) to (height, width, channel)
   image = image.transpose([1, 0, 2])
   #  convert from rgb to bgr
