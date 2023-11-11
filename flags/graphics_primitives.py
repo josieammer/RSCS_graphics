@@ -27,6 +27,7 @@ def draw_circle(x, y, color, radius):
       radius (int/float):
         The radius of the circle.
     """
+  global screen
   pygame.draw.circle(screen, color, (x, SCREEN_HEIGHT - y), radius)
 
 
@@ -45,6 +46,7 @@ def draw_line(start_x, start_y, end_x, end_y, color):
       color (str):
         Name of the fill color, in HTML format.
     """
+  global screen
   pygame.draw.line(screen, color, (start_x, SCREEN_HEIGHT - start_y),
                    (end_x, SCREEN_HEIGHT - end_y))
 
@@ -64,6 +66,7 @@ def draw_image(image_name, x, y):
   image_height = image.get_height()
   left_x = x
   top_y = y + image_height
+  global screen
   screen.blit(image, (left_x, SCREEN_HEIGHT - top_y))
 
 
@@ -95,7 +98,8 @@ def draw_rectangle(x, y, width, height, color, rotation=0):
     y_offset = -1 * radius * math.sin(angle + rot_radians)
     x_offset = radius * math.cos(angle + rot_radians)
     points.append((x + x_offset, y + y_offset))
-
+  
+  global screen
   pygame.draw.polygon(screen, color, points)
 
 
@@ -126,6 +130,7 @@ def draw_star(x, y, color, radius, points=5, rotation=0):
     width = (radius / 2) * math.sin((i + 0.5) * theta + rot_radians)
     point_coords.append((x + width, y + height))
 
+  global screen
   pygame.draw.polygon(screen, color, point_coords)
 
 
@@ -141,6 +146,7 @@ def draw_text(text, x, y, color):
         The y coordinate of the bottom of the shape.  
     """
   textsurface = _default_font.render(text, True, color)
+  global screen
   screen.blit(textsurface, (x, SCREEN_HEIGHT - y - textsurface.get_height()))
 
 
@@ -175,6 +181,7 @@ def draw_triangle(x, y, color, width, height, rotation=0):
     starting_points[i][0] * math.sin(rot_radians)
     points.append((x + x_offset, y + y_offset))
     
+  global screen
   pygame.draw.polygon(screen, color, points)
 
 
