@@ -62,28 +62,21 @@ def draw_shapes():
 
 
 def run_program():
-  # Run until the user asks to quit
-  running = True
-  while running:
-    for event in pygame.event.get():
-      if event.type == pygame.QUIT:
-        running = False
+  # Fill the background with white
+  graphics_primitives.screen.fill((255, 255, 255))
+  draw_shapes()
+  pygame.display.flip()
 
-    # Fill the background with white
-    graphics_primitives.screen.fill((255, 255, 255))
-    draw_shapes()
-    pygame.display.flip()
-
-    #convert image so it can be displayed in OpenCV
-    image = pygame.surfarray.array3d(graphics_primitives.screen)
-    #  convert from (width, height, channel) to (height, width, channel)
-    image = image.transpose([1, 0, 2])
-    #  convert from rgb to bgr
-    image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
-    # clear the output
-    output.clear(wait=True)
-    #Display image
-    cv2_imshow(image)
+  #convert image so it can be displayed in OpenCV
+  image = pygame.surfarray.array3d(graphics_primitives.screen)
+  #  convert from (width, height, channel) to (height, width, channel)
+  image = image.transpose([1, 0, 2])
+  #  convert from rgb to bgr
+  image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+  # clear the output
+  output.clear(wait=True)
+  #Display image
+  cv2_imshow(image)
 
   pygame.quit()
 
