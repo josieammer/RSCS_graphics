@@ -6,6 +6,8 @@ import os
 from google.colab.patches import cv2_imshow
 from google.colab import output
 
+from constants import SCREEN_WIDTH, SCREEN_HEIGHT
+
 import graphics_primitives
 
 shapes = []
