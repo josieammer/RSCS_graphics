@@ -140,6 +140,7 @@ def draw_text(screen, text, x, y, color):
       y (int/float):
         The y coordinate of the bottom of the shape.  
     """
+  _default_font = pygame.font.Font(pygame.font.get_default_font(), 16)
   textsurface = _default_font.render(text, True, color)
   screen.blit(textsurface, (x, SCREEN_HEIGHT - y - textsurface.get_height()))
 
