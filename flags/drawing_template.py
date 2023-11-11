@@ -23,38 +23,38 @@ shape_methods = {
 
 
 def draw_circle(x, y, color, radius):
-  shapes.append(("circle", (x, y, color, radius), {}))
+  shapes.append(("circle", (screen, x, y, color, radius), {}))
 
 
 def draw_line(start_x, start_y, end_x, end_y, color):
-  shapes.append(("line", (start_x, start_y, end_x, end_y, color), {}))
+  shapes.append(("line", (screen, start_x, start_y, end_x, end_y, color), {}))
 
 
 def draw_rectangle(x, y, width, height, color, rotation=0):
-  shapes.append(("rectangle", (x, y, width, height, color), {
+  shapes.append(("rectangle", (screen, x, y, width, height, color), {
     "rotation": rotation
   }))
 
 
 def draw_star(x, y, color, radius, points=5, rotation=0):
-  shapes.append(("star", (x, y, color, radius), {
+  shapes.append(("star", (screen, x, y, color, radius), {
     "points": points,
     "rotation": rotation
   }))
 
 
 def draw_text(text, x, y, color):
-  shapes.append(("text", (text, x, y, color), {}))
+  shapes.append(("text", (screen, text, x, y, color), {}))
 
 
 def draw_triangle(x, y, color, width, height, rotation=0):
-  shapes.append(("triangle", (x, y, color, width, height), {
+  shapes.append(("triangle", (screen, x, y, color, width, height), {
     "rotation": rotation
   }))
 
 
 def draw_image(image_name, x, y):
-  shapes.append(("image", (image_name, x, y), {}))
+  shapes.append(("image", (screen, image_name, x, y), {}))
 
 
 def draw_shapes():
