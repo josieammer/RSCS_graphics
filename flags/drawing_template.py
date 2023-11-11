@@ -70,6 +70,17 @@ def run_program():
     draw_shapes()
     pygame.display.flip()
 
+    #convert image so it can be displayed in OpenCV
+    image = pygame.surfarray.array3d(graphics_primitives.screen)
+    #  convert from (width, height, channel) to (height, width, channel)
+    image = image.transpose([1, 0, 2])
+    #  convert from rgb to bgr
+    image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+    # clear the output
+    output.clear(wait=True)
+    #Display image
+    cv2_imshow(image)
+
   pygame.quit()
 
 

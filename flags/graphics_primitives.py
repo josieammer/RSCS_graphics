@@ -5,6 +5,8 @@
 
 import math
 import pathlib
+import os
+import cv2
 
 import pygame
 import pygame.draw
@@ -12,9 +14,13 @@ import pygame.font
 import pygame.image
 import pygame.time
 
+from google.colab.patches import cv2_imshow
+from google.colab import output
+
 from constants import SCREEN_WIDTH, SCREEN_HEIGHT
 
 # Setup pygame
+os.environ["SDL_VIDEODRIVER"] = "dummy"
 pygame.init()
 pygame.font.init()
 screen = pygame.display.set_mode([SCREEN_WIDTH, SCREEN_HEIGHT])
