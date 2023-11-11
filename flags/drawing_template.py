@@ -1,6 +1,7 @@
 import math
 import pygame
 import cv2
+import os
 
 from google.colab.patches import cv2_imshow
 from google.colab import output
@@ -62,6 +63,14 @@ def draw_shapes():
 
 
 def run_program():
+  # Setup pygame
+  os.environ["SDL_VIDEODRIVER"] = "dummy"
+  pygame.init()
+  pygame.font.init()
+  global screen
+  screen = pygame.display.set_mode([SCREEN_WIDTH, SCREEN_HEIGHT])
+  _default_font = pygame.font.Font(pygame.font.get_default_font(), 16)
+
   # Fill the background with white
   graphics_primitives.screen.fill((255, 255, 255))
   draw_shapes()

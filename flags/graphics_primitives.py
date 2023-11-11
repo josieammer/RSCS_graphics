@@ -5,7 +5,6 @@
 
 import math
 import pathlib
-import os
 
 import pygame
 import pygame.draw
@@ -14,14 +13,6 @@ import pygame.image
 import pygame.time
 
 from constants import SCREEN_WIDTH, SCREEN_HEIGHT
-
-# Setup pygame
-os.environ["SDL_VIDEODRIVER"] = "dummy"
-pygame.init()
-pygame.font.init()
-screen = pygame.display.set_mode([SCREEN_WIDTH, SCREEN_HEIGHT])
-_default_font = pygame.font.Font(pygame.font.get_default_font(), 16)
-
 
 def draw_circle(x, y, color, radius):
   """Draw a circle, centered at x, y.
@@ -204,6 +195,5 @@ __all__ = [
   "draw_circle",
   "draw_rectangle",
   "draw_star",
-  "draw_text",
-  "screen",
+  "draw_text"
 ]
